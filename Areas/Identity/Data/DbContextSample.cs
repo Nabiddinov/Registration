@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Registration.Areas.Identity.Data;
 
 namespace Registration.Areas.Identity.Data;
 
@@ -21,4 +19,3 @@ public class DbContextSample : IdentityDbContext<SampleUser>
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
     }
 }
-

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Registration.Areas.Identity.Data;
 namespace Registration
@@ -8,13 +7,13 @@ namespace Registration
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-                        var connectionString = builder.Configuration.GetConnectionString("DbContextSampleConnection") ?? throw new InvalidOperationException("Connection string 'DbContextSampleConnection' not found.");
+            var connectionString = builder.Configuration.GetConnectionString("DbContextSampleConnection") ?? throw new InvalidOperationException("Connection string 'DbContextSampleConnection' not found.");
 
-                                    builder.Services.AddDbContext<DbContextSample>(options =>
-                options.UseSqlServer(connectionString));
+            builder.Services.AddDbContext<DbContextSample>(options =>
+            options.UseSqlServer(connectionString));
 
-                                                builder.Services.AddDefaultIdentity<SampleUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DbContextSample>();
+            builder.Services.AddDefaultIdentity<SampleUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddEntityFrameworkStores<DbContextSample>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -33,7 +32,7 @@ namespace Registration
             app.UseStaticFiles();
 
             app.UseRouting();
-                        app.UseAuthentication();;
+            app.UseAuthentication(); ;
 
             app.UseAuthorization();
 
